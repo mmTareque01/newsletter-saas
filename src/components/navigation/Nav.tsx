@@ -1,8 +1,29 @@
+import Link from "next/link";
 import React from "react";
+
+const navData = [
+  {
+    title: "Home",
+    href: "/",
+  },
+
+  {
+    title: "Blog",
+    href: "/changelog",
+  },
+  {
+    title: "Terms",
+    href: "/legal",
+  },
+  {
+    title: "Contact Us",
+    href: "/contact",
+  },
+];
 
 export default function Nav() {
   return (
-    <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+    <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80  shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
       <div className="px-4">
         <div className="flex items-center justify-between">
           <div className="flex shrink-0">
@@ -15,22 +36,27 @@ export default function Nav() {
               <p className="sr-only">Website Title</p>
             </a>
           </div>
-          <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
-            <a
-              aria-current="page"
-              className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-              href="#"
-            >
-              How it works
-            </a>
-            <a
-              className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-              href="#"
-            >
-              Pricing
-            </a>
+          <div className="flex justify-end md:gap-5">
+            {navData.map((item, index) => (
+              <Link
+                key={index} // Don't forget the key prop!
+                aria-current="page"
+                className="inline-block rounded-lg px-5 py-3 text-large font-medium text-gray-900 
+                transition-all duration-200 hover:bg-gray-100 
+                hover:scale-105 transform origin-center" // Added transform
+                href={item.href}
+              >
+                {item.title}
+              </Link>
+            ))}
           </div>
           <div className="flex items-center justify-end gap-3">
+            <Link
+              className="hidden items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex hover:scale-105"
+              href="/login"
+            >
+              Login
+            </Link>
             {/* <a
               className="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
               href="/login"
