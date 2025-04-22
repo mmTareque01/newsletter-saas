@@ -7,6 +7,9 @@ import Link from "next/link";
 // import UserDropdown from "../components/header/UserDropdown";
 import Image from "next/image";
 import { useSidebar } from "@/context/SidebarProvider";
+import { ThemeToggleButton } from "./ThemeToggleButton";
+import NotificationDropdown from "./NotificationDropdown";
+import UserDropdown from "./UserDropdown";
 
 const AppHeader = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
@@ -160,10 +163,10 @@ const AppHeader = () => {
           } w-full items-center justify-between gap-4 px-5 py-4 shadow-md lg:flex lg:justify-end lg:px-0 lg:shadow-none`}
         >
           <div className="flex items-center gap-2 2xsm:gap-3">
-            {/* <ThemeToggleButton /> */}
-            {/* <NotificationDropdown /> */}
+            <ThemeToggleButton />
+            <NotificationDropdown />
           </div>
-          {/* <UserDropdown /> */}
+          <UserDropdown />
         </div>
       </div>
     </header>

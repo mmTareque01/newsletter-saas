@@ -10,7 +10,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
   const { isExpanded, isHovered, isMobileOpen } = useSidebar();
 
   return (
-    <div className="min-h-screen xl:flex">
+    <div className="min-h-screen xl:flex bg-[#F9FAFB]">
       <div>
         <AppSidebar />
         <Backdrop />
@@ -21,7 +21,9 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
         } ${isMobileOpen ? "ml-0" : ""}`}
       >
         <AppHeader />
-        <div className="p-4 mx-auto max-w-screen-2xl md:p-6">{children}</div>
+        <div className="p-4 mx-auto max-w-screen-2xl md:p-6 bg-[#F9FAFB]">
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -34,9 +36,7 @@ export default function DashboardLayout({
 }) {
   return (
     <SidebarProvider>
-      <LayoutContent>
-        {children}
-        </LayoutContent>
+      <LayoutContent>{children}</LayoutContent>
     </SidebarProvider>
   );
 }
