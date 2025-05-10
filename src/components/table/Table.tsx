@@ -1,15 +1,30 @@
 import { Text } from "../typography";
 import Pagination from "./Pagination";
 
-export default function Table({ data = [], columns }: any) {
+interface TableColumn<T> {
+  key: keyof T | string;
+  header: string;
+  className?: string;
+  render?: (row: T) => React.ReactNode;
+}
+
+interface TableProps<T extends Record<string, unknown>> {
+  data?: T[];
+  columns: Array<TableColumn<T>>;
+}
+
+export default function Table<T extends Record<string, unknown>>({
+  data = [],
+  columns
+}: TableProps<T>) {
   return (
     <div className="overflow-x-auto bg-white rounded-lg shadow">
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-blue-100">
           <tr>
-            {columns.map((column: any) => (
+            {columns.map((column) => (
               <th
-                key={column.key}
+                key={column.key.toString()}
                 className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider"
               >
                 <Text className="text-blue-800">{column.header}</Text>
@@ -19,7 +34,7 @@ export default function Table({ data = [], columns }: any) {
         </thead>
         <tbody className="divide-y divide-gray-200">
           {data.length > 0 ? (
-            data.map((row: any, rowIndex: number) => (
+            data.map((row, rowIndex) => (
               <tr
                 key={rowIndex}
                 className={
@@ -28,16 +43,25 @@ export default function Table({ data = [], columns }: any) {
                     : "bg-[#F0FFFF] hover:bg-gray-100"
                 }
               >
-                {columns.map((column: any) => (
-                  <td
-                    key={column.key}
-                    className="px-2 py-1 whitespace-nowrap border border-gray-100"
-                  >
-                    <Text className={column?.className}>
-                      {column.render ? column.render(row) : row[column.key]}
-                    </Text>
-                  </td>
-                ))}
+                {columns.map((column) => {
+                  // Safely get the cell value
+                  const cellValue = column.render 
+                    ? column.render(row)
+                    : column.key in row
+                    ? (row[column.key as keyof T] as React.ReactNode)
+                    : null;
+
+                  return (
+                    <td
+                      key={column.key.toString()}
+                      className="px-2 py-1 whitespace-nowrap border border-gray-100"
+                    >
+                      <Text className={column?.className}>
+                        {cellValue}
+                      </Text>
+                    </td>
+                  );
+                })}
               </tr>
             ))
           ) : (
@@ -57,16 +81,7 @@ export default function Table({ data = [], columns }: any) {
         from={1}
         to={data.length}
         total={data.length}
-        links={[
-          { label: "1", url: "#" },
-          { label: "1", url: "#" },
-          { label: "1", url: "#" },
-          { label: "1", url: "#" },
-          { label: "1", url: "#" },
-        ]}
-        handleClick={(e: any) => {
-          console.log("Page clicked: ", e);
-        }}
+        handleClick={(page: number) => console.log("Page clicked: ", page)}
       />
     </div>
   );

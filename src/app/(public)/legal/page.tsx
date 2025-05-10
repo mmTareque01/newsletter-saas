@@ -25,7 +25,7 @@ export default function LegalPage() {
       <h1 className="mt-16">Terms of Service</h1>
       <p>
         By using our service, you agree not to misuse the platform, violate any laws, or
-        infringe on others' rights. We reserve the right to terminate access for
+        infringe on others&apos; rights. We reserve the right to terminate access for
         violations.
       </p>
 
@@ -47,7 +47,7 @@ export default function LegalPage() {
 
       <h1 className="mt-24">Contact & Support</h1>
       <p>
-        Have questions, feedback, or need help? We're here to support you. Reach out
+        Have questions, feedback, or need help? We&apos;re here to support you. Reach out
         through any of the methods below:
       </p>
 

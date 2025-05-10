@@ -1,4 +1,3 @@
-import { BiBadge } from "react-icons/bi";
 import { Table, TableBody, TableCell, TableHeader, TableRow } from "../Table";
 
 //   import Badge from "../ui/badge/Badge";

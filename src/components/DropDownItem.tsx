@@ -22,13 +22,15 @@ export const DropdownItem = ({
 }: DropdownItemProps) => {
   const combinedClasses = `${baseClassName} ${className}`.trim();
 
-  const handleClick = (event: any) => {
-    if (tag === "button") {
-      event.preventDefault();
-    }
-    if (onClick) onClick();
-    if (onItemClick) onItemClick();
-  };
+
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  if (tag === "button") {
+    event.preventDefault();
+  }
+  if (onClick) onClick();  // Pass the event to onClick if needed
+  if (onItemClick) onItemClick();  // Pass the event to onItemClick if needed
+};
 
   if (tag === "a" && to) {
     return (

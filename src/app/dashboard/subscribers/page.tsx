@@ -1,11 +1,11 @@
 "use client";
 import { Table } from "@/components/table/index";
 import { Title } from "@/components/typography";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function SubscribersPage() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const itemsPerPage = 10;
 
   // Example data
   const subscribers = [
@@ -20,6 +20,12 @@ export default function SubscribersPage() {
     // ... more data
   ];
 
+  interface RowData {
+  // email: string;
+  // name: string;
+  status: string; // or whatever your possible status values are
+  // Add other row properties here if needed
+}
   const columns = [
     { key: "email", header: "Email", className: "text-center" },
     { key: "name", header: "Name", className: "text-center" },
@@ -27,7 +33,7 @@ export default function SubscribersPage() {
       key: "status",
       header: "Status",
       className: "text-center",
-      render: (row: any) => (
+      render: (row: RowData) => (
         <span
           className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
             row.status === "active"

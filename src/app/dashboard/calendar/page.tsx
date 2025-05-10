@@ -4,20 +4,21 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { EventInput, DateSelectArg, EventClickArg } from "@fullcalendar/core";
+import { EventInput, DateSelectArg, EventClickArg, EventApi, EventContentArg } from "@fullcalendar/core";
 
 import { useModal } from "@/hooks/useModal";
 import PageMeta from "@/others/PageMeta";
 import { Modal } from "@/components/modal";
 
 interface CalendarEvent extends EventInput {
+  id: string;
   extendedProps: {
     calendar: string;
   };
 }
 
 const Calendar = () => {
-  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<EventApi | null>(null);
   const [eventTitle, setEventTitle] = useState("");
   const [eventStartDate, setEventStartDate] = useState("");
   const [eventEndDate, setEventEndDate] = useState("");
@@ -67,7 +68,7 @@ const Calendar = () => {
 
   const handleEventClick = (clickInfo: EventClickArg) => {
     const event = clickInfo.event;
-    setSelectedEvent(event as unknown as CalendarEvent);
+    setSelectedEvent(event);
     setEventTitle(event.title);
     setEventStartDate(event.start?.toISOString().split("T")[0] || "");
     setEventEndDate(event.end?.toISOString().split("T")[0] || "");
@@ -252,7 +253,7 @@ const Calendar = () => {
   );
 };
 
-const renderEventContent = (eventInfo: any) => {
+const renderEventContent = (eventInfo: EventContentArg) => {
   const colorMap: Record<string, string> = {
     danger: "bg-red-500",
     success: "bg-green-500",

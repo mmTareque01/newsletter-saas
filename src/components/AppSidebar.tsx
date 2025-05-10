@@ -1,23 +1,14 @@
 "use client";
 
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import Image from "next/image";
 import { useSidebar } from "@/context/SidebarProvider";
 import { useAppSettings } from "@/stores/app-settings-store";
-import { LuLayoutDashboard, LuPlug, LuTableCellsSplit } from "react-icons/lu";
-import { FaChevronDown, FaRegCopy, FaRegUser, FaWpforms } from "react-icons/fa";
-import { IoCalendarClearOutline } from "react-icons/io5";
-import { MdOutlineCalendarMonth } from "react-icons/md";
-import { FiPieChart } from "react-icons/fi";
-import { TbCubePlus } from "react-icons/tb";
-import { BiHorizontalCenter } from "react-icons/bi";
 import { HiDotsHorizontal } from "react-icons/hi";
 import SidebarWidget from "./SidebarWidget";
 import Navigation from "./navigation/Navigation";
-import { adminNavItems, adminOthersItems } from "@/constants/nav";
+import { adminNavItems } from "@/constants/nav";
 
 
 

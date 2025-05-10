@@ -1,8 +1,7 @@
 import { ReactNode } from "react";
-import { FaRegCopy, FaRegUser, FaWpforms } from "react-icons/fa";
+import {  FaRegUser } from "react-icons/fa";
 import { FiPieChart } from "react-icons/fi";
-import { LuLayoutDashboard, LuPlug, LuTableCellsSplit } from "react-icons/lu";
-import { MdOutlineCalendarMonth } from "react-icons/md";
+import { LuLayoutDashboard, LuPlug } from "react-icons/lu";
 import { TbCubePlus } from "react-icons/tb";
 
 export type NavItem = {

@@ -1,52 +1,17 @@
-"use client";
+import { ElementType, ComponentPropsWithoutRef, ReactNode } from 'react'
 
-import {
-  ElementType,
-  ForwardRefExoticComponent,
-  PropsWithChildren,
-  RefAttributes,
-  forwardRef,
-} from "react";
+type TextProps<T extends ElementType> = {
+  as?: T
+  children: ReactNode
+} & ComponentPropsWithoutRef<T>
 
-type AsProp<T extends ElementType> = {
-  as?: T;
-};
+const Text = <T extends ElementType = 'span'>({
+  as,
+  children,
+  ...rest
+}: TextProps<T>) => {
+  const Component = as || 'div'
+  return <Component {...rest}>{children}</Component>
+}
 
-type BoxOwnProps = {
-  className?: string;
-};
-
-type PolymorphicComponentProps<
-  T extends ElementType,
-  P = {}
-> = PropsWithChildren<P & AsProp<T>> &
-  Omit<React.ComponentPropsWithoutRef<T>, keyof (AsProp<T> & P)>;
-
-type PolymorphicComponentWithRef<
-  T extends ElementType,
-  P = {}
-> = ForwardRefExoticComponent<
-  PolymorphicComponentProps<T, P> & RefAttributes<any>
->;
-
-const BoxInner = <T extends ElementType = "div">(
-  {
-    as,
-    className,
-    children,
-    ...rest
-  }: PolymorphicComponentProps<T, BoxOwnProps>,
-  ref: React.Ref<any>
-) => {
-  const Component = as || "div";
-  return (
-    <Component ref={ref} className={className} {...rest}>
-      {children}
-    </Component>
-  );
-};
-
-export const Box = forwardRef(BoxInner) as PolymorphicComponentWithRef<
-  "div",
-  BoxOwnProps
->;
+export default Text

@@ -1,8 +1,4 @@
-// src/components/Hero.tsx
-// import BackgroundGrid from "./BackgroundGrid";
-
-import { BiUser } from "react-icons/bi";
-import { FaAviato, FaUser } from "react-icons/fa";
+import {  FaUser } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -51,7 +47,7 @@ export default function Hero() {
                 loading="lazy"
               />
             ) : (
-              <div className="w-8 h-8 rounded-full  flex items-center justify-center border border-white">
+              <div key={i} className="w-8 h-8 rounded-full  flex items-center justify-center border border-white">
                 {/* < className="w-4 h-4 text-gray-500" /> */}
                 <FaUser />
               </div>
