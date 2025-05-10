@@ -4,7 +4,7 @@ import {
   createContext,
   useContext,
   useState,
-  useEffect,
+  // useEffect,
   ReactNode,
 } from 'react';
 
@@ -34,24 +34,27 @@ export const useSidebar = () => {
 export const SidebarProvider = ({ children }: { children: ReactNode }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
-  useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
-      if (!mobile) {
-        setIsMobileOpen(false);
-      }
-    };
+// useEffect(() => {
+//     // Only run on client side
+//     if (typeof window !== 'undefined') {
+//       const handleResize = () => {
+//         const mobile = window.innerWidth < 768;
+//         setIsMobile(mobile);
+//         if (!mobile) {
+//           setIsMobileOpen(false);
+//         }
+//       };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+//       handleResize();
+//       window.addEventListener('resize', handleResize);
+//       return () => window.removeEventListener('resize', handleResize);
+//     }
+//   }, []);
 
   const toggleSidebar = () => {
     setIsExpanded((prev) => !prev);

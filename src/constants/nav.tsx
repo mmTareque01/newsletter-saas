@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 import {  FaRegUser } from "react-icons/fa";
 import { FiPieChart } from "react-icons/fi";
+import { IoMailOutline } from "react-icons/io5";
 import { LuLayoutDashboard, LuPlug } from "react-icons/lu";
-import { TbCubePlus } from "react-icons/tb";
+import { TbCubePlus, TbUsers } from "react-icons/tb";
 
 export type NavItem = {
   name: string;
@@ -24,12 +25,12 @@ export const adminNavItems: NavItem[] = [
   //   path: root + "/calendar",
   // },
   {
-    icon: <FaRegUser />, // <UserCircleIcon />,
+    icon: <IoMailOutline />, // <UserCircleIcon />,
     name: "Campaigns",
     path: root + "/campaigns",
   },
   {
-    icon: <FaRegUser />, // <UserCircleIcon />,
+    icon: <TbUsers />, // <UserCircleIcon />,
     name: "Subscribers",
     path: root + "/subscribers",
   },
