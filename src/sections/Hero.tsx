@@ -6,7 +6,7 @@ import { FaAviato, FaUser } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <div className="relative z-10 flex min-h-screen h-full items-center justify-center px-4 sm:px-8">
+    <div className="relative z-10 flex min-h-screen h-full items-center justify-center bg px-4 sm:px-8">
       {/* <BackgroundGrid /> */}
 
       <div className="relative z-10 max-w-3xl text-white space-y-6">

@@ -10,18 +10,22 @@ import { useSidebar } from "@/context/SidebarProvider";
 import { ThemeToggleButton } from "./ThemeToggleButton";
 import NotificationDropdown from "./NotificationDropdown";
 import UserDropdown from "./UserDropdown";
+import { useAppSettings } from "@/stores/app-settings-store";
 
 const AppHeader = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
-  const { isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();
+    const { toggleSidebar,  } = useAppSettings();
+  const { isMobileOpen,  toggleMobileSidebar } = useSidebar();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleToggle = () => {
-    if (window.innerWidth >= 1024) {
-      toggleSidebar();
-    } else {
-      toggleMobileSidebar();
-    }
+    // if (window.innerWidth >= 1024) {
+    //   toggleSidebar();
+    // } else {
+    //   toggleMobileSidebar();
+    // }
+
+    toggleSidebar()
   };
 
   const toggleApplicationMenu = () => {

@@ -1,8 +1,7 @@
 import { ReactNode } from "react";
 
 // Props for Table
-interface TableProps {
-  children: ReactNode; // Table content (thead, tbody, etc.)
+interface en: ReactNode; // Table content (thead, tbody, etc.)
   className?: string; // Optional className for styling
 }
 
@@ -32,7 +31,7 @@ interface TableCellProps {
 }
 
 // Table Component
-const Table: React.FC<TableProps> = ({ children, className }) => {
+const Table: React.FC<lassName }) => {
   return <table className={`min-w-full  ${className}`}>{children}</table>;
 };
 

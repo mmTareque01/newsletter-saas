@@ -84,7 +84,7 @@ export default function Home() {
     <Wrapper>
       <Hero />
       {/* Add more scrollable sections below if needed */}
-      <section className="py-20 px-4 sm:px-10 lg:px-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 px-4 sm:px-10 lg:px-20">
         <div className="max-w-5xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold">
             Features that save time & spark ideas
@@ -94,7 +94,7 @@ export default function Home() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow-md"
+              className="p-6 rounded-xl shadow-md"
             >
               <div className="text-3xl mb-4">{feature.icon}</div>
               <h3 className="font-semibold text-xl mb-2">{feature.title}</h3>
@@ -106,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-white dark:bg-black">
+      <section className="py-20 px-4 ">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl font-bold">Simple pricing, no surprises</h2>
           <p className="text-gray-600 dark:text-gray-400 mt-2">
@@ -114,42 +114,42 @@ export default function Home() {
           </p>
         </div>
         <div className="mt-16 grid gap-8 max-w-6xl mx-auto sm:grid-cols-2 lg:grid-cols-3">
-        {plans.map((plan) => (
-          <div
-            key={plan.name}
-            className="flex flex-col justify-between rounded-2xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-lg transition"
-          >
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                {plan.name}
-              </h2>
-              <p className="mt-4 text-3xl font-bold text-gray-900 dark:text-white">
-                {plan.price}
-              </p>
-              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                {plan.description}
-              </p>
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className="flex flex-col justify-between rounded-2xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-lg transition"
+            >
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {plan.name}
+                </h2>
+                <p className="mt-4 text-3xl font-bold text-gray-900 dark:text-white">
+                  {plan.price}
+                </p>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  {plan.description}
+                </p>
 
-              <ul className="mt-6 space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <span className="mr-2 text-green-500">✓</span> {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <ul className="mt-6 space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="mr-2 text-green-500">✓</span> {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className="mt-8">
-              <button className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 transition">
-                {plan.cta}
-              </button>
+              <div className="mt-8">
+                <button className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 transition">
+                  {plan.cta}
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
       </section>
 
-      <section className="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 px-6 ">
         <div className="max-w-4xl mx-auto text-center mb-10">
           <h2 className="text-3xl font-bold">Loved by startup founders</h2>
         </div>
@@ -157,7 +157,7 @@ export default function Home() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-left"
+              className=" p-6 rounded-xl shadow-md text-left"
             >
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 “{t.text}”
