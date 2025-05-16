@@ -27,7 +27,7 @@ export default function UserInfoCard() {
                 First Name
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                Musharof
+                Muhimenul
               </p>
             </div>
 
@@ -36,7 +36,7 @@ export default function UserInfoCard() {
                 Last Name
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                Chowdhury
+                Tareque
               </p>
             </div>
 
@@ -45,7 +45,7 @@ export default function UserInfoCard() {
                 Email address
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                randomuser@pimjo.com
+                Tareque@newsletter.com
               </p>
             </div>
 
@@ -114,26 +114,26 @@ export default function UserInfoCard() {
                     <Label>Facebook</Label>
                     <Input
                       type="text"
-                      value="https://www.facebook.com/PimjoHQ"
+                      value="https://www.facebook.com/mm.tareque"
                     />
                   </div>
 
                   <div>
                     <Label>X.com</Label>
-                    <Input type="text" value="https://x.com/PimjoHQ" />
+                    <Input type="text" value="https://x.com" />
                   </div>
 
                   <div>
                     <Label>Linkedin</Label>
                     <Input
                       type="text"
-                      value="https://www.linkedin.com/company/pimjo"
+                      value="https://www.linkedin.com/in/mmtareque/"
                     />
                   </div>
 
                   <div>
                     <Label>Instagram</Label>
-                    <Input type="text" value="https://instagram.com/PimjoHQ" />
+                    <Input type="text" value="https://instagram.com" />
                   </div>
                 </div>
               </div>
@@ -145,17 +145,17 @@ export default function UserInfoCard() {
                 <div className="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
                   <div className="col-span-2 lg:col-span-1">
                     <Label>First Name</Label>
-                    <Input type="text" value="Musharof" />
+                    <Input type="text" value="Muhimenul" />
                   </div>
 
                   <div className="col-span-2 lg:col-span-1">
                     <Label>Last Name</Label>
-                    <Input type="text" value="Chowdhury" />
+                    <Input type="text" value="Tareque" />
                   </div>
 
                   <div className="col-span-2 lg:col-span-1">
                     <Label>Email Address</Label>
-                    <Input type="text" value="randomuser@pimjo.com" />
+                    <Input type="text" value="Tareque@newsletter.com" />
                   </div>
 
                   <div className="col-span-2 lg:col-span-1">

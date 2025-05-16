@@ -15,7 +15,7 @@ interface TableProps<T extends Record<string, unknown>> {
 
 export default function Table<T extends Record<string, unknown>>({
   data = [],
-  columns
+  columns,
 }: TableProps<T>) {
   return (
     <div className="overflow-x-auto bg-white rounded-lg shadow">
@@ -25,9 +25,9 @@ export default function Table<T extends Record<string, unknown>>({
             {columns.map((column) => (
               <th
                 key={column.key.toString()}
-                className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider"
+                className="px-6 py-1 text-center font-bold text-xs border-r-2 border-r-blue-200 last:border-r-0 uppercase tracking-wider"
               >
-                <Text className="text-blue-800">{column.header}</Text>
+                <Text>{column.header}</Text>
               </th>
             ))}
           </tr>
@@ -40,12 +40,12 @@ export default function Table<T extends Record<string, unknown>>({
                 className={
                   rowIndex % 2 === 0
                     ? "bg-white"
-                    : "bg-[#F0FFFF] hover:bg-gray-100"
+                    : "bg-brand-50 hover:bg-gray-100"
                 }
               >
                 {columns.map((column) => {
                   // Safely get the cell value
-                  const cellValue = column.render 
+                  const cellValue = column.render
                     ? column.render(row)
                     : column.key in row
                     ? (row[column.key as keyof T] as React.ReactNode)
@@ -54,11 +54,9 @@ export default function Table<T extends Record<string, unknown>>({
                   return (
                     <td
                       key={column.key.toString()}
-                      className="px-2 py-1 whitespace-nowrap border border-gray-100"
+                      className="px-2 py-1 whitespace-nowrap border-r-2 last:border-r-0 border-r-blue-100"
                     >
-                      <Text className={column?.className}>
-                        {cellValue}
-                      </Text>
+                      <Text className={column?.className}>{cellValue}</Text>
                     </td>
                   );
                 })}
